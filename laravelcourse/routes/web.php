@@ -18,6 +18,7 @@ Route::get(
         return view('home.about')->with('title', $data1)->with('subtitle', $data2)->with('description', $description)->with('author', $author);
     }
 )->name("home.about");
+
 Route::get(
     '/contact',
     function () {
@@ -25,8 +26,9 @@ Route::get(
         $address = "End of the worlds technically";
         $number = "4018751144";
         return view('home.contact')->with('email', $email)->with('address', $address)->with('number', $number);
-
-
-
     }
 )->name("home.contact");
+
+
+Route::get('/products', 'App\Http\Controllers\ProductController@index')->name("product.index");
+Route::get('/products/{id}', 'App\Http\Controllers\ProductController@show')->name("product.show");
