@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use illuminate\Http\Request;
-use illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ProductController extends Controller
 {
@@ -48,16 +49,16 @@ class ProductController extends Controller
 
     public function save(Request $request)
     {
+        $viewData = []; //to be sent to the view
+        $viewData['title'] = "Create Product";
         $request->validate(
             [
                 "name" => "required",
-                "price" => "required"
+                "price" => ["required", "gte:0"]
             ]
         );
-        dd($request->all());
+
+        return view('product.success')->with("viewData", $viewData);
         //here will be the code to call the model and save it to the database
     }
-
-
-
 }
