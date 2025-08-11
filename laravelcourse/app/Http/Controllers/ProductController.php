@@ -42,6 +42,20 @@ class ProductController extends Controller
     public function create()
     {
         $viewData = []; //to be sent to the view
+        $viewData['title'] = "Create Product";
+        return view('product.create')->with("viewData", $viewData);
+    }
+
+    public function save(Request $request)
+    {
+        $request->validate(
+            [
+                "name" => "required",
+                "price" => "required"
+            ]
+        );
+        dd($request->all());
+        //here will be the code to call the model and save it to the database
     }
 
 
