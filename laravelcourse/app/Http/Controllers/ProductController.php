@@ -52,8 +52,6 @@ class ProductController extends Controller
 
     public function save(Request $request)
     {
-        $viewData = []; //to be sent to the view
-        $viewData['title'] = "Create Product";
         $request->validate(
             [
                 "name" => "required",
@@ -61,7 +59,10 @@ class ProductController extends Controller
             ]
         );
 
-        return view('product.success')->with("viewData", $viewData);
         //here will be the code to call the model and save it to the database
+        Product::create($request->only(["name", "price"]));
+
+
+        return back();
     }
 }
