@@ -4,10 +4,8 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-
 class ProductFactory extends Factory
 {
-
     public function definition()
     {
         return [
@@ -15,7 +13,4 @@ class ProductFactory extends Factory
             'price' => $this->faker->numberBetween($min = 200, $max = 9000),
         ];
     }
-
-
-
 }
