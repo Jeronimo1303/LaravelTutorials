@@ -7,6 +7,11 @@
 // });
 
 // Change app to App in case it doesn't work.
+Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index');
+Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add');
+Route::get('/cart/removeAll', 'App\Http\Controllers\CartController@removeAll')->name('cart.removeAll');
+
+
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
 Route::get(
     '/about',
