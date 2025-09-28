@@ -8,28 +8,9 @@
 
 // Change app to App in case it doesn't work.
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
-Route::get(
-    '/about',
-    function () {
-        $data1 = 'About us - Online Store';
-        $data2 = 'About us';
-        $description = 'This is an About page ...';
-        $author = 'Developed by: Jeronimo Acosta';
+Route::get('/about', 'App\Http\Controllers\HomeController@about')->name('home.about');
 
-        return view('home.about')->with('title', $data1)->with('subtitle', $data2)->with('description', $description)->with('author', $author);
-    }
-)->name('home.about');
-
-Route::get(
-    '/contact',
-    function () {
-        $email = 'FRumeras@gmail.com';
-        $address = 'End of the worlds technically';
-        $number = '4018751144';
-
-        return view('home.contact')->with('email', $email)->with('address', $address)->with('number', $number);
-    }
-)->name('home.contact');
+Route::get('/contact', 'App\Http\Controllers\HomeController@contact')->name('home.contact');
 
 Route::get('/products', 'App\Http\Controllers\ProductController@index')->name('product.index');
 Route::get('/products/create', 'App\Http\Controllers\ProductController@create')->name('product.create');
@@ -41,9 +22,17 @@ Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.ind
 Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add');
 Route::get('/cart/removeAll', 'App\Http\Controllers\CartController@removeAll')->name('cart.removeAll');
 
-Route::get('/image', 'App\Http\Controllers\ImageController@index')->name("image.index");
-Route::post('/image/save', 'App\Http\Controllers\ImageController@save')->name("image.save");
+Route::get('/image', 'App\Http\Controllers\ImageController@index')->name('image.index');
+Route::post('/image/save', 'App\Http\Controllers\ImageController@save')->name('image.save');
 
-Route::get('/image-not-di', 'App\Http\Controllers\ImageNotDIController@index')->name("imagenotdi.index");
+Route::get('/image-not-di', 'App\Http\Controllers\ImageNotDIController@index')->name('imagenotdi.index');
 
-Route::post('/image-not-di/save', 'App\Http\Controllers\ImageNotDIController@save')->name("imagenotdi.save");
+Route::post('/image-not-di/save', 'App\Http\Controllers\ImageNotDIController@save')->name('imagenotdi.save');
+
+// Aca va la parte del parcial 2
+
+Route::get('/pilot', 'App\Http\Controllers\PilotController@index')->name('pilot.index');
+Route::get('/pilot/register', 'App\Http\Controllers\PilotController@register')->name('pilot.register');
+Route::post('/pilot/save', 'App\Http\Controllers\PilotController@save')->name('pilot.save');
+Route::get('/pilot/list', 'App\Http\Controllers\PilotController@list')->name('pilot.list');
+Route::get('/pilot/statistics', 'App\Http\Controllers\PilotController@statistics')->name('pilot.statistics');

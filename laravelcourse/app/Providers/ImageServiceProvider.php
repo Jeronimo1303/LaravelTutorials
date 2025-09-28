@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Providers;
-use Illuminate\Support\ServiceProvider;
+
 use App\Interfaces\ImageStorage;
 use App\Util\ImageLocalStorage;
+use Illuminate\Support\ServiceProvider;
 
 class ImageServiceProvider extends ServiceProvider
 {
-
     public function register()
     {
         $this->app->bind(ImageStorage::class, function () {

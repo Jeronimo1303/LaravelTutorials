@@ -24,11 +24,6 @@ class ProductController extends Controller
         $viewData = [];
         $product = Product::findOrFail($id);
 
-        /*if ($id > sizeof($produc)) {
-            return redirect()->route('home.index');
-        }*/
-
-        [$id - 1];
         $viewData['title'] = $product['name'].' - Product information';
         $viewData['subtitle'] = $product['name'].' - Product information';
         $viewData['product'] = $product;

@@ -1,14 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Interfaces\ImageStorage;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 
 class ImageController extends Controller
 {
-
     public function index()
     {
         return view('image.index');
@@ -21,5 +19,4 @@ class ImageController extends Controller
 
         return back();
     }
-
 }
